@@ -1,0 +1,447 @@
+/*--------------------
+General CSS
+--------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  margin-bottom: 25%;
+  color: white;
+  background-color: #312e2b;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.scoreEffect {
+  text-align: right;
+}
+
+#Leaderboard, #updatesSection {
+  margin-top: 50px;
+}
+
+#About, #analysis {
+  margin-top: 0px;
+  text-align: center;
+  line-height: 175%;
+}
+
+h1 {
+  font-size: 52px;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 16px;
+  margin: 2px auto;
+}
+.playerHeader {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+p, label { 
+  font-size: 22px;
+  color: whitesmoke;
+}
+
+article {
+  text-align: left;
+  width: 45%;
+  margin: auto;
+  color: whitesmoke;
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: black;
+  background: cyan;
+}
+
+::selection {
+  color: black;
+  background: cyan;
+}
+
+.highlightText {
+  line-height: 20px;
+  background: rgb(253, 186, 60);
+  padding: 5px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* link */
+a:link, a:visited  {
+  color: rgb(0,210,210);
+}
+
+/* selected link */
+a:active {
+  color: #0000EE;
+}
+
+.blackText {
+  color: black !important;
+}
+
+/*--------------------
+Tabs CSS
+--------------------*/
+.tabs {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid black;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.tabs button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+.tabs button:hover {
+  background-color: #ddd;
+}
+.tabs button.active {
+  background-color: #ccc;
+}
+.tabcontent {
+  display: none;
+  border-top: none;
+}
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.fauxLink {
+  color: cyan;
+}
+.fauxLink:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*--------------------
+About CSS
+--------------------*/
+
+#About {
+  display: block;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 66%;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.golden-border {
+  border: 2px solid #a77d00;
+  border-radius: 5px;
+}
+.highlight {
+  background-color: inherit;
+  padding: 15px;
+  margin: 20px 0;
+}
+.rules-section {
+  background-color: inherit;
+  padding: 20px;
+  margin: 20px 0;
+}
+.event-info {
+  padding: 20px;
+  margin: 20px 0;
+}
+.warning {
+  color: #dc3545;
+  font-weight: bold;
+}
+.location {
+  background-color: inherit;
+  padding: 15px;
+  margin: 15px 0;
+}
+.championship {
+  background-color: inherit;
+  padding: 15px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+/*--------------------
+Leaderboard CSS
+--------------------*/
+
+.leaderboard_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 85px;
+}
+
+.leaderboard {
+  width: 50%;
+  border: 1px white solid;
+  border-collapse: collapse;
+}
+.leaderboard th {
+  background-color: #292E3A;
+  padding: 20px;
+}
+.rankHeader {
+  width: 10%;
+}
+.nameHeader {
+  width: 40%;
+}
+.distanceHeader {
+  width: 25%;
+  text-align:right;
+}
+.accuracyHeader {
+  width: 25%;
+  text-align:right;
+}
+.leaderboardRow {
+  border-collapse: collapse;
+}
+.leaderboardRow:hover {
+  background-color: rgb(0, 210, 210) !important;
+  color: black !important;
+}
+.leaderboard td {
+  padding: 15px;
+  font-size: 15px;
+}
+.circle {
+  background-color: white;
+  display:block;
+  height:25px;
+  width:25px;
+  border-radius:50%;
+  margin:auto;
+  color:black;
+  line-height:25px;
+  text-align:center;
+}
+
+.orangeFill {
+  background-color: #efa311 !important;
+}
+
+.highlightInstructions {
+  color: black;
+  background: none;
+  background-color: cyan;
+  cursor: pointer;
+}
+
+
+.noSelect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+
+/*--------------------
+Analysis CSS
+--------------------*/
+
+.axis { 
+  font: 16px sans-serif; 
+  fill: whitesmoke;
+  color: whitesmoke;
+}
+
+.axis path {
+  fill: none;
+  stroke: whitesmoke;
+  shape-rendering: crispEdges;
+  stroke-width: 2px;
+}
+
+div.tooltip {	
+  position: absolute;			
+  text-align: center;			
+  padding: 2px;				
+  font: 16px sans-serif;		
+  background: white;	
+  border: solid;
+  border: 2px solid black;		
+  border-radius: 5px;			
+  pointer-events: none;		
+  color: black;	
+  display: none;
+}
+
+.annotation {
+  font-size: 16px;
+}
+.annotation rect {
+  fill: white;
+  x: 10;
+  y: 10;
+  stroke-width: 1px;
+  stroke: black;
+}
+
+.heatmapHeader {
+  font-size: 26px;
+  fill: whitesmoke;
+}
+.heatmapLabel {
+  font-size: 18px;
+  fill: whitesmoke;
+}
+
+.heatmapContainer {
+  position:sticky;
+  top: 2.5%;
+  margin: auto;
+  z-index: 1;
+}
+.scrollOnTop {
+  position: relative;
+  background-color: white;
+  color: black;
+  border: 1px black solid;
+  padding: 10px 20px;
+  width: 25%;
+  margin: 15vh auto 95vh auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  text-align: left;
+  z-index: 2;
+}
+
+.update {
+  background-color: whitesmoke;
+  color: black;
+  border: 1px black solid;
+  padding: 10px;
+  margin: 20px;
+}
+span.date {
+  font-size: 14px;
+  color: gray;
+  float: right;
+}
+.updateHeader {
+  font-size: 20px;
+  font-weight: bold;
+}
+.update p {
+  margin: 5px;
+  color: black;
+}
+
+
+/*--------------------
+Mobile
+--------------------*/
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 46px;
+    line-height: 120%;
+  }
+  article {
+    width: 90%;
+  }
+
+  .tabcontent {
+    width: 99vw;
+  }
+  .leaderboard_container {
+    /* width: 90%; */
+    display: block;
+  }
+  .leaderboard {
+    position: static;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin: 0 auto; */
+  }
+  .leaderboard th {
+    padding: 10px 10px;
+  }
+  .distanceHeader {
+    display: none;
+  }
+  .accuracyHeader {
+    width: 10%;
+  }
+
+  .analysis {
+    margin-top: 5%;
+    position: static;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+  }
+
+  .axis { 
+    font: 12px sans-serif; 
+  }
+
+  .predictions {
+    display: none;
+    z-index: -1;
+  }
+
+  .heatmapHeader {
+    font-size: 14px;
+  }
+  .heatmapLabel {
+    font-size: 10px;
+  }
+  .scrollOnTop {
+    width: 90%;
+  }
+  .example_row {
+    display: block;
+    width: 75%;
+  }
+
+  .heatmapContainer {
+    width: 50%;
+    margin-left: 5vw;
+    top: 20%;
+  }
+
+  span.date {
+    float: none;
+    display: block;
+  }
+}
