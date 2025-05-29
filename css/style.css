@@ -20,7 +20,7 @@ body {
 }
 
 #Leaderboard, #updatesSection {
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 #About, #analysis {
@@ -48,6 +48,11 @@ h3 {
 }
 
 p, label { 
+  font-size: 22px;
+  color: whitesmoke;
+}
+
+ul, ol, li {
   font-size: 22px;
   color: whitesmoke;
 }
@@ -80,6 +85,7 @@ article {
 /* link */
 a:link, a:visited  {
   color: rgb(0,210,210);
+  text-decoration: none;
 }
 
 /* selected link */
@@ -132,12 +138,10 @@ Tabs CSS
   to {opacity: 1;}
 }
 
-.fauxLink {
-  color: cyan;
-}
-.fauxLink:hover {
-  text-decoration: underline;
-  cursor: pointer;
+.nav-logo {
+  height: 30px;
+  float: left;
+  margin: 8px 15px;
 }
 
 /*--------------------
@@ -147,6 +151,21 @@ About CSS
 #About {
   display: block;
   margin: 0 auto;
+}
+
+#About img {
+  margin-bottom: 1rem;
+}
+
+#About h1 {
+  font-weight: 700;
+  margin: 2rem auto 2rem auto;
+}
+
+#About > div:first-of-type {
+  margin-bottom: 2rem;
+  font-size: 18px;
+  line-height: 1.4;
 }
 
 .container {
@@ -160,20 +179,14 @@ About CSS
 .golden-border {
   border: 2px solid #a77d00;
   border-radius: 5px;
+  padding: 12px 15px;
+  margin: 15px 0;
 }
 .highlight {
   background-color: inherit;
-  padding: 15px;
-  margin: 20px 0;
 }
 .rules-section {
   background-color: inherit;
-  padding: 20px;
-  margin: 20px 0;
-}
-.event-info {
-  padding: 20px;
-  margin: 20px 0;
 }
 .warning {
   color: #dc3545;
@@ -181,14 +194,17 @@ About CSS
 }
 .location {
   background-color: inherit;
-  padding: 15px;
-  margin: 15px 0;
 }
 .championship {
   background-color: inherit;
-  padding: 15px;
-  margin: 15px 0;
   text-align: center;
+}
+
+.hero-logo {
+  display: block;
+  margin: 10% auto 1rem auto;
+  max-width: 40%;
+  height: auto;
 }
 
 /*--------------------
