@@ -481,6 +481,17 @@ Mobile
     width: 90%;
   }
 
+  .container {
+    width: 95%;
+    max-width: 95%;
+    padding: 5px;
+  }
+  .golden-border{
+    padding: 10px 10px;
+  }
+  .map-photo {
+    max-width: 90%;
+  }
   .tabcontent {
     width: 99vw;
   }
@@ -548,5 +559,29 @@ Mobile
   span.date {
     float: none;
     display: block;
+  }
+
+  .carousel-container {
+    max-width: 95vw;
+    margin: 1rem auto;
+  }
+  
+  .carousel-item img,
+  .carousel-item video {
+    height: 250px; /* reduced from 400px */
+  }
+  
+  .carousel-prev,
+  .carousel-next {
+    padding: 10px 15px; /* smaller buttons */
+    font-size: 18px; /* smaller arrows */
+  }
+  
+  .carousel-prev {
+    left: 5px; /* closer to edge */
+  }
+  
+  .carousel-next {
+    right: 5px; /* closer to edge */
   }
 }
