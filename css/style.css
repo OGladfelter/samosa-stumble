@@ -177,10 +177,11 @@ About CSS
 }
 
 .golden-border {
-  border: 2px solid #a77d00;
-  border-radius: 5px;
-  padding: 12px 15px;
+  border: 2px solid rgba(167, 125, 0, 0.6);
+  border-radius: 10px;
+  padding: 12px 20px;
   margin: 15px 0;
+  box-shadow: 0 2px 8px rgba(167, 125, 0, 0.2);
 }
 .highlight {
   background-color: inherit;
@@ -207,15 +208,43 @@ About CSS
   height: auto;
 }
 
+.championship-photo {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.map-photo {
+  max-width: 66%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(255, 255, 0, 0.177);
+}
+
+.h1-icon {
+  height: 1em; /* matches the text height */
+  width: auto;
+  vertical-align: middle; /* aligns with text baseline */
+  margin: 0 0.2em; /* small spacing around it */
+}
+
 /*--------------------
 Leaderboard CSS
 --------------------*/
 
+.photo-container {
+  position: relative;
+}
+
 .leaderboard_container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0; /* makes it span full width */
   display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  margin-top: 85px;
+  justify-content: space-evenly; /* keeps your existing centering */
+  z-index: 2;
 }
 
 .leaderboard {
@@ -378,6 +407,66 @@ span.date {
   color: black;
 }
 
+
+/*--------------------
+carousel
+--------------------*/
+
+.carousel-container {
+  position: relative;
+  max-width: 50%;
+  margin: 2rem auto;
+  overflow: hidden; /* moved here */
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-item {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-item img,
+.carousel-item video {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  background-color: #312e2b; /* matches page background */
+  display: block;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
 
 /*--------------------
 Mobile

@@ -52,41 +52,43 @@
 <body>
 
 <div class="tabs">
-  <img src="img/samosaBLACK.png" alt="Samosa Stumble Logo" class="nav-logo">
+  <img src="img/samosaBLACK.png" alt="Samosa Stumble Logo" class="nav-logo" onclick="openTab(event, 'About')">
   <button class="tablinks active" onclick="openTab(event, 'About')">About</button>
-  <button class="tablinks" onclick="openTab(event, 'Leaderboard')">Leaderboard</button>
-  <button class="tablinks" onclick="openTab(event, 'analysis')">Historic</button>
+  <button class="tablinks" onclick="openTab(event, 'Leaderboard')">Past Results</button>
+  <button class="tablinks" onclick="openTab(event, 'analysis')">Per Year</button>
+  <button class="tablinks" onclick="openTab(event, 'Gallery')">Gallery</button>
   <button class="tablinks" onclick="openTab(event, 'updatesSection')">Updates</button>
 </div>
 
-  <!-- THE LEADERBOARD -->
-  <div id="Leaderboard" class="tabcontent">
-    <!-- <article style="text-align: center;">
-      <h1>Contest Leaderboard</h1>
-      <p style="margin:2px;" class="instructions">Hover over any name to see their prediction, click to see their rank over time</p>
-      <p style="margin:2px;" class="mobile_instructions">Tap any name to see their rank over time</p>
-    </article> -->
-    <div class="leaderboard_container">
-      <table id="leaderboardTable" class="leaderboard">
-        <tr>
-          <th class="rankHeader">Rank</th>
-          <th class="nameHeader">Stumbler</th>
-          <th class="distanceHeader">Samosas</th>
-          <th class="accuracyHeader">Year</th>
-        </tr>
-      </table>
-    </div>
+<!-- THE LEADERBOARD -->
+<div id="Leaderboard" class="tabcontent">
+  <!-- <article style="text-align: center;">
+    <h1>Contest Leaderboard</h1>
+    <p style="margin:2px;" class="instructions">Hover over any name to see their prediction, click to see their rank over time</p>
+    <p style="margin:2px;" class="mobile_instructions">Tap any name to see their rank over time</p>
+  </article> -->
+  <div class="photo-container">
+    <img src="img/table.jpg" style="width:100%;">
+  </div>
+  <div class="leaderboard_container">
+    <table id="leaderboardTable" class="leaderboard">
+      <tr>
+        <th class="rankHeader">Rank</th>
+        <th class="nameHeader">Stumbler</th>
+        <th class="distanceHeader">Samosas</th>
+        <th class="accuracyHeader">Year</th>
+      </tr>
+    </table>
   </div>
 </div>
 <!-- end leaderboard -->
 
-<!-- Prediction tsn-e chart -->
 <div id="updatesSection" class="tabcontent">
-  <img src="img/samosa-banner.jpg" width="100%">
   <article>
     <h1>Latest Updates</h1>
     <!-- <h2 style="margin-top: 5vh;">Latest updates</h2> -->
-     <h2>See you all July 12th...</h2>
+     <h2>See you all July 12th...<img src="img/samosa.png" alt="" class="h1-icon"><img src="img/samosa.png" alt="" class="h1-icon"><img src="img/samosa.png" alt="" class="h1-icon"></h2>
+     <img src="img/craig.jpg">
     <!-- <div class="update">
       <span class="updateHeader">Jason vomits!</span>
       <span class="date">11:27pm</span>
@@ -104,15 +106,13 @@
     </div> -->
   </article>
 </div>
-
-</div>
 <!-- end standing over time lineplot -->
 
 <!-- ANALYSIS & FUN FACTS -->
 <div id="analysis" class="tabcontent">
   <div>
       <article style="text-align:center;">
-        <h1>Samosas Per Year</h1>
+        <h1><img src="img/samosa.png" alt="" class="h1-icon">Samosas Per Year<img src="img/samosa.png" alt="" class="h1-icon"></h1>
       </article>
       <div class="heatmapContainer">
           <div id="heatmap"></div>
@@ -120,14 +120,15 @@
       </div>
       <div class="scrollOnTop" id="step1">
         <h3>Paul Fortunato leads in lifetime samosas</h3>
-        Despite never claiming the championship belt, Paul has eaten <span class="highlightText">29 total samosas across his two stumbles</span> - cumulatively more than any other stumbler!</div>
+        Despite never claiming the championship belt, Paul has eaten <span class="highlightText">29 total samosas across his two stumbles</span> - cumulatively more than any other stumbler!
+      </div>
       <div class="scrollOnTop" id="step2">
         <h3>The Steady Seven</h3>
-        Although dozens have lined up to challenge the samosas, <span class="highlightText">just seven brave souls</span> have shown up year after year.</div>
+        Although dozens have lined up to challenge the samosas, <span class="highlightText">just seven brave souls</span> have shown up year after year.
+      </div>
       <div class="scrollOnTop" id="step3">On the other end of the spectrum, a certain someone manages to talk a big game year after year...</div>
       <div class="scrollOnTop" style="margin-bottom:50vh; visibility:hidden;">Moving on...</div>
   </div>
- 
 </div>
 <!-- end analysis and fun facts -->
 
@@ -142,7 +143,7 @@
   </div>
 
   <div class="container">
-    <h1 style="text-align:center;">SAMOSA STUMBLE IV</h1>
+    <h1 style="text-align:center;"><img src="img/samosa.png" alt="" class="h1-icon"><img src="img/samosa.png" alt="" class="h1-icon"> SAMOSA STUMBLE IV <img src="img/samosa.png" alt="" class="h1-icon"><img src="img/samosa.png" alt="" class="h1-icon"></h1>
     
     <div class="highlight golden-border">
         <p><strong>Rules</strong></p>
@@ -163,19 +164,71 @@
         <ul>
           <li>Location: Warren Park, Chicago</li>
           <li>Meet: the <a href="https://www.google.com/maps/place/42%C2%B000'02.6%22N+87%C2%B041'08.5%22W/@42.0007665,-87.6867278,17.8z/data=!4m4!3m3!8m2!3d42.000728!4d-87.685706?entry=ttu&g_ep=EgoyMDI1MDUyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">start & finish</a> are inside the park, just east of Warren Park Ball Field 5</li>
-          <li><strong>First loop begins at 5:00pm SHARP!</strong></li>
+          <li>Round 1 starts at 5:00pm</li>
           <li>Course: 1.1 mile <a href="https://onthegomap.com/s/rt36k5fo" target="_blank">loop around the park</a></li>
+          <div style="text-align:center;">
+            <img src="img/map.png" alt="Map of race course" class="map-photo">
+          </div>
           <li>We'll have water and samosas at the start / finish. Bring whatever else you want...but what beyond samosas do you really need?</li>
         </ul>
       </div>
 
     <div class="championship golden-border">
       <h2>🏆 THE CHAMPIONSHIP BELT IS ON THE LINE!! 🏆</h2>
-      <p>Defending 2024 champ Jason Sikora is ready for you!</p>
+      <img src="img/belt.png" alt="Championship photo" class="championship-photo">
+      <p>Defending champ Jason Sikora is ready for you!</p>
+    </div>
   </div>
 </div>
-</div>
 <!-- end rules & contest info -->
+
+<div id="Gallery" class="tabcontent">
+  
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-item active">
+        <img src="img/photo1.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo2.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo3.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo4.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo5.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo6.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo7.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo8.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <img src="img/photo9.jpg" alt="Samosa Stumble Photo">
+      </div>
+      <div class="carousel-item">
+        <video controls autoplay muted loop>
+          <source src="img/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="carousel-item">
+        <video controls autoplay muted loop>
+          <source src="img/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    
+    <button class="carousel-prev" onclick="changeSlide(-1)">❮</button>
+    <button class="carousel-next" onclick="changeSlide(1)">❯</button>
+  </div>
+</div>
   
 <script src='js/script.js'></script>
 

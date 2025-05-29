@@ -11,12 +11,11 @@ function openTab(evt, tabID) {
   }
   document.getElementById(tabID).style.display = "block";
   evt.currentTarget.className += " active";
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
   if (tabID == "analysis") {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-
     Waypoint.enableAll();
   }
 }
@@ -387,3 +386,19 @@ function deHighlightTile(id, colorScale) {
 }
 
 readData();
+
+let currentSlide = 0;
+const totalSlides = document.querySelectorAll('.carousel-item').length;
+
+function changeSlide(direction) {
+  currentSlide += direction;
+  
+  if (currentSlide >= totalSlides) {
+    currentSlide = 0;
+  } else if (currentSlide < 0) {
+    currentSlide = totalSlides - 1;
+  }
+  
+  const carousel = document.querySelector('.carousel');
+  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
