@@ -369,8 +369,8 @@ div.tooltip {
 
 .heatmapContainer {
   position:sticky;
-  top: 2.5%;
-  margin: auto;
+  top: 10%;
+  margin: 0 auto 0 auto;
   z-index: 1;
 }
 .scrollOnTop {
@@ -380,7 +380,7 @@ div.tooltip {
   border: 1px black solid;
   padding: 10px 20px;
   width: 25%;
-  margin: 15vh auto 95vh auto;
+  margin: 0vh auto 95vh auto;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   text-align: left;
   z-index: 2;
