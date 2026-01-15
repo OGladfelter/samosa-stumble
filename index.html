@@ -53,23 +53,58 @@
 <div class="tabs">
   <img src="img/samosaBLACK.png" alt="Samosa Stumble Logo" class="nav-logo" onclick="openTab(event, 'About')">
   <button class="tablinks active" onclick="openTab(event, 'About')">About</button>
-  <button class="tablinks" onclick="openTab(event, 'Leaderboard')">Past Results</button>
-  <button class="tablinks" onclick="openTab(event, 'Lifetime')">Lifetime</button>
+  <button class="tablinks" onclick="openTab(event, 'Leaderboard')">Results</button>
+  <button class="tablinks" onclick="openTab(event, 'Lifetime')">Lifetime Totals</button>
   <button class="tablinks" onclick="openTab(event, 'analysis')">Per Year</button>
   <button class="tablinks" onclick="openTab(event, 'Gallery')">Gallery</button>
 </div>
 
 <!-- THE LEADERBOARD -->
 <div id="Leaderboard" class="tabcontent">
-  <div class="leaderboard_container">
-    <table id="leaderboardTable" class="leaderboard">
-      <tr>
-        <th class="rankHeader">Rank</th>
-        <th class="nameHeader">Stumbler</th>
-        <th class="distanceHeader">Samosas</th>
-        <th class="accuracyHeader">Year</th>
-      </tr>
-    </table>
+  <div class="yearly-results-container">
+    <div class="year-section">
+      <h2>2025</h2>
+      <table id="leaderboard2025" class="leaderboard yearly-table">
+        <tr>
+          <th class="rankHeader">Rank</th>
+          <th class="nameHeader">Stumbler</th>
+          <th class="distanceHeader">Samosas</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="year-section">
+      <h2>2024</h2>
+      <table id="leaderboard2024" class="leaderboard yearly-table">
+        <tr>
+          <th class="rankHeader">Rank</th>
+          <th class="nameHeader">Stumbler</th>
+          <th class="distanceHeader">Samosas</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="year-section">
+      <h2>2023</h2>
+      <table id="leaderboard2023" class="leaderboard yearly-table">
+        <tr>
+          <th class="rankHeader">Rank</th>
+          <th class="nameHeader">Stumbler</th>
+          <th class="distanceHeader">Samosas</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="year-section">
+      <h2>2022</h2>
+      <table id="leaderboard2022" class="leaderboard yearly-table">
+        <tr>
+          <th class="rankHeader">Rank</th>
+          <th class="nameHeader">Stumbler</th>
+          <th class="distanceHeader">Samosas</th>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 <!-- end leaderboard -->

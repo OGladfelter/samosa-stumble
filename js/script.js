@@ -37,8 +37,51 @@ function readData() {
   );
   
   // Once all files are loaded, combine and process
-  Promise.all(promises).then(allDataArrays => {
-    const data = allDataArrays.flat(); // Combine all years into one array
+  Promise.all(promises).then(arrayOfDataFromAllYears => {
+    // for each year, add a results table
+    arrayOfDataFromAllYears.forEach((yearData, index) => {
+      const year = years[index];
+      
+      // Convert to numbers
+      yearData.forEach(d => {
+        d.samosas = +d.samosas;
+        d.miles = +d.miles;
+        d.year = +d.year;
+      });
+      
+      // Sort by samosas
+      yearData.sort((a, b) => b.samosas - a.samosas);
+      
+      // Calculate color scale for this year
+      const minSamosas = d3.min(yearData, d => d.samosas);
+      const maxSamosas = d3.max(yearData, d => d.samosas);
+      const colorScale = d3.scaleLinear()
+        .domain([minSamosas, maxSamosas])
+        .range(["#8181df", "#333399"]);
+      
+      // Rank and add rows
+      let rank = 1;
+      let prevSamosas = null;
+      let tiedCount = 0;
+      
+      yearData.forEach(d => {
+        if (prevSamosas !== null && d.samosas < prevSamosas) {
+          rank += tiedCount;
+          tiedCount = 1;
+        } else if (prevSamosas === d.samosas) {
+          tiedCount++;
+        } else {
+          tiedCount = 1;
+        }
+        
+        prevSamosas = d.samosas;
+        const rowColor = colorScale(d.samosas);
+        
+        addResultsRow(year, rank, d.name, d.samosas, rowColor);
+      });
+    });
+
+    const data = arrayOfDataFromAllYears.flat(); // Combine all years into one array
 
     // Convert columns to numbers
     data.forEach(d => {
@@ -51,55 +94,24 @@ function readData() {
     const minSamosas = d3.min(data, d => d.samosas);
     const maxSamosas = d3.max(data, d => d.samosas);
 
-    console.log(minSamosas);
-    console.log(maxSamosas);
+    // Create color scale based on samosas range
+    const rankColorScale = d3.scaleLinear()
+      .domain([minSamosas, maxSamosas])
+      .range(["#8181df", "#333399"]);
+      
+    // add row color
+    data.forEach(d => {
+      d.rowColor = rankColorScale(d.samosas);
+    });
+      
+    // Sort by samosas in descending order (most samosas first)
+    data.sort((a, b) => b.samosas - a.samosas);
 
-      // Create color scale based on samosas range
-      const rankColorScale = d3.scaleLinear()
-        .domain([minSamosas, maxSamosas])
-        .range(["#8181df", "#333399"]);
-      
-      // Convert samosas to numbers and sort by samosas (descending)
-      data.forEach(d => {
-        d.samosas = +d.samosas; // Convert to number
-        d.miles = +d.miles;     // Convert miles to number too
-        d.year = +d.year;       // Convert year to number
-        d.rowColor = rankColorScale(d.samosas);
-      });
-      
-      // Sort by samosas in descending order (most samosas first)
-      data.sort((a, b) => b.samosas - a.samosas);
-      
-      // Add rank column
-      let currentRank = 1;
-      let previousSamosas = null;
-      let sameRankCount = 0;
-      
-      data.forEach((d, i) => {
-        if (previousSamosas !== null && d.samosas < previousSamosas) {
-          currentRank += sameRankCount;
-          sameRankCount = 1;
-        } else if (previousSamosas === d.samosas) {
-          sameRankCount++;
-        } else {
-          sameRankCount = 1;
-        }
-        
-        d.participantID = i;
-        d.rank = currentRank;
-        previousSamosas = d.samosas;
-      });
+    // create lifetime leaderboard
+    lifetimeLeaderboard(data);
     
-      // add each player to leaderboard
-      data.forEach(d => {
-        addRow(d.rank, d.name, d.samosas, d.year, d.rowColor, d);
-      });
-
-      // create lifetime leaderboard
-      lifetimeLeaderboard(data);
-      
-      // add some viz
-      drawHeatmap(); // draw heatmap
+    // add some viz
+    drawHeatmap(); // draw heatmap
   }); 
 };
 
@@ -188,51 +200,76 @@ function addLifetimeRow(rank, name, totalSamosas, yearsParticipated, rowColor) {
 // Leaderboard
 //////////////////////////////////////////////////////////
 
-function addRow(rank, name, samosas, year, rowColor, d) {
-    var table = document.getElementById("leaderboardTable");
+// function addResultsRow(rank, name, samosas, year, rowColor, d) {
+//     var table = document.getElementById("leaderboardTable");
+//     var row = table.insertRow(-1);
+//     row.id = "leaderboardRow" + d.participantID;
+//     row.classList.add('leaderboardRow');
+
+//     var rankCell = row.insertCell(0);
+//     var nameCell = row.insertCell(1);
+
+//     if (screen.width >= 600) {
+//       var distanceCell = row.insertCell(2);
+//       var accuracyCell = row.insertCell(3);
+//       distanceCell.style.textAlign = 'right';
+//       distanceCell.innerHTML = samosas;
+//     }
+//     else {
+//       var accuracyCell = row.insertCell(2);
+//     }
+//     accuracyCell.style.textAlign = 'right';
+//     accuracyCell.innerHTML = Math.round(year);
+
+//     rankCell.innerHTML = '<span class="circle">' + rank + '</span>';
+//     nameCell.innerHTML = name;
+
+//     // make winners stand out
+//     if ((name == "Oliver Gladfelter" && year == 2023) || (name == "Jason Sikora" && year == 2024) || (name == "Ian McLeod" && year == 2022)) {
+//       nameCell.innerHTML += " &#129351;";
+//     }
+
+//     row.style.backgroundColor = rowColor;
+
+//     nameCell.style.textAlign = 'left';
+//     nameCell.style.fontSize = '18px';
+
+//     // add interactions for rows in leaderboard
+//     row.addEventListener("mouseover", function() {
+//         console.log(this);
+//     });
+//     row.addEventListener("mouseout", function() {
+//       console.log("out");
+//     });
+//     row.addEventListener("click", function() { // click a row to show their line in Standings Over Time tab
+//       document.getElementById('lineplotRow' + d.participantID).click();
+//       console.log('click');
+//     });
+// }
+
+function addResultsRow(year, rank, name, samosas, rowColor) {
+    var table = document.getElementById("leaderboard" + year);
     var row = table.insertRow(-1);
-    row.id = "leaderboardRow" + d.participantID;
     row.classList.add('leaderboardRow');
 
     var rankCell = row.insertCell(0);
     var nameCell = row.insertCell(1);
-
-    if (screen.width >= 600) {
-      var distanceCell = row.insertCell(2);
-      var accuracyCell = row.insertCell(3);
-      distanceCell.style.textAlign = 'right';
-      distanceCell.innerHTML = samosas;
-    }
-    else {
-      var accuracyCell = row.insertCell(2);
-    }
-    accuracyCell.style.textAlign = 'right';
-    accuracyCell.innerHTML = Math.round(year);
+    var samosasCell = row.insertCell(2);
 
     rankCell.innerHTML = '<span class="circle">' + rank + '</span>';
     nameCell.innerHTML = name;
+    samosasCell.innerHTML = samosas;
 
-    // make winners stand out
-    if ((name == "Oliver Gladfelter" && year == 2023) || (name == "Jason Sikora" && year == 2024) || (name == "Ian McLeod" && year == 2022)) {
+    // Add trophy for winners
+    if (rank == 1) {
       nameCell.innerHTML += " &#129351;";
     }
 
     row.style.backgroundColor = rowColor;
-
+    
     nameCell.style.textAlign = 'left';
     nameCell.style.fontSize = '18px';
-
-    // add interactions for rows in leaderboard
-    row.addEventListener("mouseover", function() {
-        console.log(this);
-    });
-    row.addEventListener("mouseout", function() {
-      console.log("out");
-    });
-    row.addEventListener("click", function() { // click a row to show their line in Standings Over Time tab
-      document.getElementById('lineplotRow' + d.participantID).click();
-      console.log('click');
-    });
+    samosasCell.style.textAlign = 'right';
 }
 
 //////////////////////////////////////////////////////////

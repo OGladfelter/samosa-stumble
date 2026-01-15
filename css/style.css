@@ -234,12 +234,45 @@ Leaderboard CSS
 --------------------*/
 
 #Leaderboard {
-  background-image: url('../img/table.jpg');
-  background-size: 100% auto; /* full width, auto height */
-  background-position: center top;
-  background-repeat: repeat-y; /* repeat vertically */
   min-height: 100vh;
   padding-top: 100px; /* space from nav */
+}
+
+.yearly-results-container {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding-bottom: 100px;
+}
+
+.year-section {
+  width: 100%;
+  max-width: 800px;
+}
+
+.year-section h2 {
+  color: white;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.yearly-table {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.background-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 50px;
 }
 
 #Lifetime {
