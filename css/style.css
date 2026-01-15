@@ -350,7 +350,7 @@ Leaderboard CSS
   width: 25%;
   text-align:right;
 }
-.accuracyHeader {
+.numYearsHeader {
   width: 25%;
   text-align:right;
 }
@@ -596,8 +596,8 @@ Mobile
   .leaderboard th {
     padding: 10px 10px;
   }
-  .accuracyHeader {
-    width: 10%;
+  .numYearsHeader {
+    display: none;
   }
 
   .analysis {
@@ -670,11 +670,15 @@ Mobile
   }
 
   .year-selector {
-    top: 120px;
+    top: 160px;
     flex-wrap: wrap;
     width: 90%;
     justify-content: center;
     margin-bottom: 20px;
+  }
+
+  .yearly-results-container {
+    top: 260px;
   }
 
   .year-btn {
