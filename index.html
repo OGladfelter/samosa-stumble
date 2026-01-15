@@ -60,11 +60,19 @@
 </div>
 
 <!-- THE LEADERBOARD -->
-<div id="Leaderboard" class="tabcontent">
+<div id="Leaderboard" class="tabcontent">  
+  <!-- Year selector buttons -->
+  <div class="year-selector">
+    <button class="year-btn active" onclick="showYear(2025)">2025</button>
+    <button class="year-btn" onclick="showYear(2024)">2024</button>
+    <button class="year-btn" onclick="showYear(2023)">2023</button>
+    <button class="year-btn" onclick="showYear(2022)">2022</button>
+  </div>
+  
   <div class="yearly-results-container">
-    <div class="year-section">
+    <div id="year2025" class="year-section active-year">
       <h2>2025</h2>
-      <table id="leaderboard2025" class="leaderboard yearly-table">
+      <table id="leaderboard2025" class="leaderboard wide-leaderboard yearly-table">
         <tr>
           <th class="rankHeader">Rank</th>
           <th class="nameHeader">Stumbler</th>
@@ -73,9 +81,9 @@
       </table>
     </div>
 
-    <div class="year-section">
+    <div id="year2024" class="year-section">
       <h2>2024</h2>
-      <table id="leaderboard2024" class="leaderboard yearly-table">
+      <table id="leaderboard2024" class="leaderboard wide-leaderboard yearly-table">
         <tr>
           <th class="rankHeader">Rank</th>
           <th class="nameHeader">Stumbler</th>
@@ -84,9 +92,9 @@
       </table>
     </div>
 
-    <div class="year-section">
+    <div id="year2023" class="year-section">
       <h2>2023</h2>
-      <table id="leaderboard2023" class="leaderboard yearly-table">
+      <table id="leaderboard2023" class="leaderboard wide-leaderboard yearly-table">
         <tr>
           <th class="rankHeader">Rank</th>
           <th class="nameHeader">Stumbler</th>
@@ -95,9 +103,9 @@
       </table>
     </div>
 
-    <div class="year-section">
+    <div id="year2022" class="year-section">
       <h2>2022</h2>
-      <table id="leaderboard2022" class="leaderboard yearly-table">
+      <table id="leaderboard2022" class="leaderboard wide-leaderboard yearly-table">
         <tr>
           <th class="rankHeader">Rank</th>
           <th class="nameHeader">Stumbler</th>
@@ -107,7 +115,6 @@
     </div>
   </div>
 </div>
-<!-- end leaderboard -->
 
 <!-- LIFETIME LEADERBOARD -->
 <div id="Lifetime" class="tabcontent">

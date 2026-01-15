@@ -272,6 +272,22 @@ function addResultsRow(year, rank, name, samosas, rowColor) {
     samosasCell.style.textAlign = 'right';
 }
 
+function showYear(year) {
+  // Hide all year sections
+  document.querySelectorAll('.year-section').forEach(section => {
+    section.classList.remove('active-year');
+  });
+  
+  // Show selected year
+  document.getElementById('year' + year).classList.add('active-year');
+  
+  // Update button states
+  document.querySelectorAll('.year-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.currentTarget.classList.add('active');
+}
+
 //////////////////////////////////////////////////////////
 // Heatmap functions
 //////////////////////////////////////////////////////////
