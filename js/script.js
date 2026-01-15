@@ -26,10 +26,33 @@ function openTab(evt, tabID) {
 //////////////////////////////////////////////////////////
 
 function readData() { 
-  d3.csv("data/historical.csv").then(function(data) {
-      // Get the min and max samosas from your data
-      const minSamosas = d3.min(data, d => d.samosas);
-      const maxSamosas = d3.max(data, d => d.samosas);
+  const years = [2022, 2023, 2024, 2025];
+
+  // Load all year files
+  const promises = years.map(year => 
+    d3.csv(`data/${year}.csv`).then(yearData => {
+      yearData.forEach(d => d.year = year);
+      return yearData;
+    })
+  );
+  
+  // Once all files are loaded, combine and process
+  Promise.all(promises).then(allDataArrays => {
+    const data = allDataArrays.flat(); // Combine all years into one array
+
+    // Convert columns to numbers
+    data.forEach(d => {
+      d.samosas = +d.samosas; 
+      d.miles = +d.miles;
+      d.year = +d.year; 
+    });
+        
+    // Get the min and max samosas from your data
+    const minSamosas = d3.min(data, d => d.samosas);
+    const maxSamosas = d3.max(data, d => d.samosas);
+
+    console.log(minSamosas);
+    console.log(maxSamosas);
 
       // Create color scale based on samosas range
       const rankColorScale = d3.scaleLinear()
@@ -117,13 +140,22 @@ function lifetimeLeaderboard(data) {
     prevTotal = person.totalSamosas;
   });
 
+  // Color based on total samosas
+    // Calculate color scale based on actual data range
+    const minTotal = d3.min(lifetimeArray, d => d.totalSamosas);
+    const maxTotal = d3.max(lifetimeArray, d => d.totalSamosas);
+    const colorScale = d3.scaleLinear()
+      .domain([minTotal, maxTotal])
+      .range(["#8181df", "#333399"]);
+
   // add each player to lifetime leaderboard
   lifetimeArray.forEach(person => {
-    addLifetimeRow(person.rank, person.name, person.totalSamosas, person.yearsParticipated);
+    const rowColor = colorScale(person.totalSamosas);
+    addLifetimeRow(person.rank, person.name, person.totalSamosas, person.yearsParticipated, rowColor);
   });
 }
 
-function addLifetimeRow(rank, name, totalSamosas, yearsParticipated) {
+function addLifetimeRow(rank, name, totalSamosas, yearsParticipated, rowColor) {
     var table = document.getElementById("lifetimeTable");
     var row = table.insertRow(-1);
     row.classList.add('leaderboardRow');
@@ -145,13 +177,8 @@ function addLifetimeRow(rank, name, totalSamosas, yearsParticipated) {
 
     rankCell.innerHTML = '<span class="circle">' + rank + '</span>';
     nameCell.innerHTML = name;
-
-    // Color based on total samosas
-    const colorScale = d3.scaleLinear()
-      .domain([0, 50])
-      .range(["#8181df", "#333399"]);
     
-    row.style.backgroundColor = colorScale(totalSamosas);
+    row.style.backgroundColor = rowColor;
 
     nameCell.style.textAlign = 'left';
     nameCell.style.fontSize = '18px';

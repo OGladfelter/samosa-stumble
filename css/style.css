@@ -233,29 +233,41 @@ About CSS
 Leaderboard CSS
 --------------------*/
 
-.photo-container {
-  position: relative;
+#Leaderboard {
+  background-image: url('../img/table.jpg');
+  background-size: 100% auto; /* full width, auto height */
+  background-position: center top;
+  background-repeat: repeat-y; /* repeat vertically */
+  min-height: 100vh;
+  padding-top: 100px; /* space from nav */
+}
+
+#Lifetime {
+  background-image: url('../img/table.jpg');
+  background-size: 100% auto; /* full width, auto height */
+  background-position: center top;
+  background-repeat: no-repeat; /* repeat vertically */
+  min-height: 100vh;
+  padding-top: 100px; /* space from nav */
 }
 
 .leaderboard_container {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0; /* makes it span full width */
   display: flex;
-  justify-content: space-evenly; /* keeps your existing centering */
-  z-index: 2;
+  justify-content: center;
 }
 
 .leaderboard {
   width: 50%;
   border: 1px white solid;
   border-collapse: collapse;
+  margin-bottom: 50px; /* breathing room at bottom */
 }
+
 .leaderboard th {
   background-color: #292E3A;
   padding: 20px;
 }
+
 .rankHeader {
   width: 10%;
 }
