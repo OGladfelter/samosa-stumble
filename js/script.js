@@ -71,11 +71,91 @@ function readData() {
       data.forEach(d => {
         addRow(d.rank, d.name, d.samosas, d.year, d.rowColor, d);
       });
+
+      // create lifetime leaderboard
+      lifetimeLeaderboard(data);
       
       // add some viz
       drawHeatmap(); // draw heatmap
   }); 
 };
+
+function lifetimeLeaderboard(data) {
+  // Calculate lifetime totals for each stumbler
+  const lifetimeData = {};
+  data.forEach(d => {
+    if (!lifetimeData[d.name]) {
+      lifetimeData[d.name] = {
+        name: d.name,
+        totalSamosas: 0,
+        yearsParticipated: 0
+      };
+    }
+    lifetimeData[d.name].totalSamosas += d.samosas;
+    lifetimeData[d.name].yearsParticipated += 1;
+  });
+
+  // Convert to array and sort by total samosas
+  const lifetimeArray = Object.values(lifetimeData).sort((a, b) => b.totalSamosas - a.totalSamosas);
+
+  // Add ranks to lifetime data
+  let lifetimeRank = 1;
+  let prevTotal = null;
+  let tiedCount = 0;
+
+  lifetimeArray.forEach((person, i) => {
+    if (prevTotal !== null && person.totalSamosas < prevTotal) {
+      lifetimeRank += tiedCount;
+      tiedCount = 1;
+    } else if (prevTotal === person.totalSamosas) {
+      tiedCount++;
+    } else {
+      tiedCount = 1;
+    }
+    person.rank = lifetimeRank;
+    person.participantID = i;
+    prevTotal = person.totalSamosas;
+  });
+
+  // add each player to lifetime leaderboard
+  lifetimeArray.forEach(person => {
+    addLifetimeRow(person.rank, person.name, person.totalSamosas, person.yearsParticipated);
+  });
+}
+
+function addLifetimeRow(rank, name, totalSamosas, yearsParticipated) {
+    var table = document.getElementById("lifetimeTable");
+    var row = table.insertRow(-1);
+    row.classList.add('leaderboardRow');
+
+    var rankCell = row.insertCell(0);
+    var nameCell = row.insertCell(1);
+
+    if (screen.width >= 600) {
+      var samosasCell = row.insertCell(2);
+      var yearsCell = row.insertCell(3);
+      samosasCell.style.textAlign = 'right';
+      samosasCell.innerHTML = totalSamosas;
+    }
+    else {
+      var yearsCell = row.insertCell(2);
+    }
+    yearsCell.style.textAlign = 'right';
+    yearsCell.innerHTML = yearsParticipated;
+
+    rankCell.innerHTML = '<span class="circle">' + rank + '</span>';
+    nameCell.innerHTML = name;
+
+    // Color based on total samosas
+    const colorScale = d3.scaleLinear()
+      .domain([0, 50])
+      .range(["#8181df", "#333399"]);
+    
+    row.style.backgroundColor = colorScale(totalSamosas);
+
+    nameCell.style.textAlign = 'left';
+    nameCell.style.fontSize = '18px';
+}
 
 //////////////////////////////////////////////////////////
 // Leaderboard

@@ -54,17 +54,13 @@
   <img src="img/samosaBLACK.png" alt="Samosa Stumble Logo" class="nav-logo" onclick="openTab(event, 'About')">
   <button class="tablinks active" onclick="openTab(event, 'About')">About</button>
   <button class="tablinks" onclick="openTab(event, 'Leaderboard')">Past Results</button>
+  <button class="tablinks" onclick="openTab(event, 'Lifetime')">Lifetime</button>
   <button class="tablinks" onclick="openTab(event, 'analysis')">Per Year</button>
   <button class="tablinks" onclick="openTab(event, 'Gallery')">Gallery</button>
 </div>
 
 <!-- THE LEADERBOARD -->
 <div id="Leaderboard" class="tabcontent">
-  <!-- <article style="text-align: center;">
-    <h1>Contest Leaderboard</h1>
-    <p style="margin:2px;" class="instructions">Hover over any name to see their prediction, click to see their rank over time</p>
-    <p style="margin:2px;" class="mobile_instructions">Tap any name to see their rank over time</p>
-  </article> -->
   <div class="photo-container">
     <img src="img/table.jpg" style="width:100%;">
   </div>
@@ -80,6 +76,24 @@
   </div>
 </div>
 <!-- end leaderboard -->
+
+<!-- LIFETIME LEADERBOARD -->
+<div id="Lifetime" class="tabcontent">
+  <div class="photo-container">
+    <img src="img/table.jpg" style="width:100%;">
+  </div>
+  <div class="leaderboard_container">
+    <table id="lifetimeTable" class="leaderboard">
+      <tr>
+        <th class="rankHeader">Rank</th>
+        <th class="nameHeader">Stumbler</th>
+        <th class="distanceHeader">Total Samosas</th>
+        <th class="accuracyHeader">Years Competed</th>
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- end lifetime leaderboard -->
 
 <!-- ANALYSIS & FUN FACTS -->
 <div id="analysis" class="tabcontent">
