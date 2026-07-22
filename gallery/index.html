@@ -48,22 +48,39 @@
 </nav>
 
 <div id="Gallery" class="page">
-  <div class="carousel-container">
-    <div class="carousel">
-      <div class="carousel-item active"><img src="/img/photo1.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo2.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo3.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo4.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo5.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo6.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo7.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo8.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo9.jpg" alt="Samosa Stumble Photo"></div>
-      <div class="carousel-item"><img src="/img/photo10.jpg" alt="Samosa Stumble Photo"></div>
-    </div>
+  <div class="masonry-gallery" id="masonryGallery">
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_26.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_122.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_86.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_103.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_106.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/photo2.jpg" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/rules.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_113.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_68.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_115.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/photo4.jpg" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_51.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_43.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_7.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/photo5.jpg" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_72.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_73.JPG" alt="Samosa Stumble Photo"></div> 
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_109.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/photo3.jpg" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_77.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_87.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_95.JPG" alt="Samosa Stumble Photo"></div>
+    <div class="masonry-item"><img src="/gallery/img/Samosa2026_46.JPG" alt="Samosa Stumble Photo"></div>    
+  </div>
 
-    <button class="carousel-prev" onclick="changeSlide(-1)">❮</button>
-    <button class="carousel-next" onclick="changeSlide(1)">❯</button>
+  <p class="gallery-credit">Photos by <a href="https://www.hilitski.com/">Victor Hilitski</a><br><span class="gallery-credit-edit">(except the blurry ones, which are Craig's)</span></p>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <button class="lightbox-prev" id="lightboxPrev">&#10094;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-next" id="lightboxNext">&#10095;</button>
   </div>
 </div>
 
