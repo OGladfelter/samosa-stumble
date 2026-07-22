@@ -1,3 +1,5 @@
+const YEARS = [2022, 2023, 2024, 2025, 2026];
+
 function addResultsRow(year, rank, name, samosas, rowColor) {
   var table = document.getElementById("leaderboard" + year);
   var row = table.insertRow(-1);
@@ -35,8 +37,6 @@ function showYear(year) {
   });
   event.currentTarget.classList.add('active');
 }
-
-const YEARS = [2022, 2023, 2024, 2025];
 
 loadYearsData(YEARS).then(arrayOfDataFromAllYears => {
   arrayOfDataFromAllYears.forEach((yearData, index) => {
