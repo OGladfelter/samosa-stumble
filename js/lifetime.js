@@ -78,7 +78,8 @@ function lifetimeLeaderboard(data) {
   });
 }
 
-loadYearsData([2022, 2023, 2024, 2025]).then(arrayOfDataFromAllYears => {
+// this function from data-loader.js defaults to using an array of years, so just make sure it has all the years
+loadYearsData().then(arrayOfDataFromAllYears => {
   const data = arrayOfDataFromAllYears.flat();
   lifetimeLeaderboard(data);
 });

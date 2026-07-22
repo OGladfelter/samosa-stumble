@@ -1,5 +1,3 @@
-const YEARS = [2022, 2023, 2024, 2025, 2026];
-
 function addResultsRow(year, rank, name, samosas, rowColor) {
   var table = document.getElementById("leaderboard" + year);
   var row = table.insertRow(-1);
@@ -38,9 +36,11 @@ function showYear(year) {
   event.currentTarget.classList.add('active');
 }
 
-loadYearsData(YEARS).then(arrayOfDataFromAllYears => {
-  arrayOfDataFromAllYears.forEach((yearData, index) => {
-    const year = YEARS[index];
+// this function from data-loader.js defaults to using an array of years, so just make sure it has all the years
+loadYearsData().then(arrayOfDataFromAllYears => {
+  arrayOfDataFromAllYears.forEach((yearData) => {
+    console.log(yearData);
+    const year = yearData[0].year;
 
     // Sort by samosas
     yearData.sort((a, b) => b.samosas - a.samosas);

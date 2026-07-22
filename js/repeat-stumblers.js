@@ -1,5 +1,5 @@
 function drawHeatmap(data) {
-  const years = [2022, 2023, 2024, 2025];
+  const years = [2022, 2023, 2024, 2025, 2026];
 
   // Group data by person and year
   const groupedData = {};
@@ -12,6 +12,7 @@ function drawHeatmap(data) {
         2023: 0,
         2024: 0,
         2025: 0,
+        2026: 0,
         total: 0
       };
     }
@@ -139,7 +140,7 @@ function drawHeatmap(data) {
     .attr('pointer-events', 'none');
 }
 
-loadYearsData([2022, 2023, 2024, 2025]).then(arrayOfDataFromAllYears => {
+loadYearsData().then(arrayOfDataFromAllYears => {
   const data = arrayOfDataFromAllYears.flat();
   drawHeatmap(data);
 });
