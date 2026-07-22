@@ -59,7 +59,8 @@ function drawHeatmap(data) {
   width = Math.max(width, years.length * minCellWidth);
   height = Math.max(height, stumblers.length * minCellHeight);
 
-  var padding = 0.05;
+var xPadding = 0.1;
+var yPadding = 0.05;
 
   var svg = d3.select("#heatmap")
     .append("svg")
@@ -72,7 +73,7 @@ function drawHeatmap(data) {
   var x = d3.scaleBand()
     .domain(years)
     .range([0, width])
-    .padding(padding);
+    .padding(xPadding);
   svg.append("g")
     .attr("class", "axis")
     .attr("transform", "translate(0,0)")
@@ -82,7 +83,7 @@ function drawHeatmap(data) {
   var y = d3.scaleBand()
     .domain(stumblers)
     .range([0, height])
-    .padding(padding);
+    .padding(yPadding);
   svg.append("g")
     .attr("class", "axis")
     .attr('transform', 'translate(0, 0)')
@@ -97,8 +98,10 @@ function drawHeatmap(data) {
   var mousemove = function (event, d) {
     heatmapTooltip.style("opacity", d.value == 0 ? 0 : 1);
 
+    const samosaWord = d.value == 1 ? "samosa" : "samosas";
+
     heatmapTooltip
-      .html(d.name + " ate<br> " + d.value + " samosas in " + d.year)
+      .html(d.name + " ate<br> " + d.value + " " + samosaWord + " in " + d.year)
       .style('left', event.pageX / window.innerWidth <= 0.5 ? event.clientX + 20 + "px" : event.clientX - heatmapTooltip.node().getBoundingClientRect().width + 25 + 'px')
       .style('top', y(d.name) + heatmapTooltip.node().getBoundingClientRect().height + 25 + "px")
       .style('display', 'block');
@@ -119,7 +122,10 @@ function drawHeatmap(data) {
     .attr("width", x.bandwidth())
     .attr("height", y.bandwidth())
     .style("fill", function (d) { return heatmapColors(d.value) })
-    .on("mousemove", mousemove);
+    .on("mousemove", mousemove)
+    .on("mouseleave", function () {
+      heatmapTooltip.style('display', 'none');
+    });
 
   // Text label color scale
   var textColor = d3.scaleQuantile()
