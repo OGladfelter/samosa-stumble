@@ -1,9 +1,17 @@
 #Lifetime {
-  background-image: url('/img/table2.JPG');
-  background-size: 100% auto;
-  background-position: center top;
-  background-repeat: no-repeat;
+  position: relative;
   min-height: 100vh;
   padding-top: 100px;
   margin-top: 0px;
+}
+#Lifetime::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/img/table.JPG');
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -1;
 }
