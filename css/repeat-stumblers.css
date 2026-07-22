@@ -1,0 +1,76 @@
+#analysis {
+  margin-top: 0px;
+  text-align: center;
+  line-height: 175%;
+}
+
+.axis {
+  font: 16px sans-serif;
+  fill: whitesmoke;
+  color: whitesmoke;
+}
+
+.axis path {
+  fill: none;
+  stroke: whitesmoke;
+  shape-rendering: crispEdges;
+  stroke-width: 2px;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 2px;
+  font: 16px sans-serif;
+  background: white;
+  border: solid;
+  border: 2px solid black;
+  border-radius: 5px;
+  pointer-events: none;
+  color: black;
+  display: none;
+}
+
+.annotation {
+  font-size: 16px;
+}
+.annotation rect {
+  fill: white;
+  x: 10;
+  y: 10;
+  stroke-width: 1px;
+  stroke: black;
+}
+
+.heatmapHeader {
+  font-size: 26px;
+  fill: whitesmoke;
+}
+.heatmapLabel {
+  font-size: 18px;
+  fill: whitesmoke;
+}
+
+.heatmapContainer {
+  position: sticky;
+  top: 10%;
+  margin: 0 auto 0 auto;
+  z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .axis {
+    font: 12px sans-serif;
+  }
+  .heatmapHeader {
+    font-size: 14px;
+  }
+  .heatmapLabel {
+    font-size: 10px;
+  }
+  .heatmapContainer {
+    width: 50%;
+    margin-left: 5vw;
+    top: 20%;
+  }
+}

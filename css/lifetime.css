@@ -1,0 +1,9 @@
+#Lifetime {
+  background-image: url('/img/table.jpg');
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-top: 100px;
+  margin-top: 0px;
+}

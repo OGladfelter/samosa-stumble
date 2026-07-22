@@ -1,243 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MC8LMQVMV"></script>
-    <script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MC8LMQVMV"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-9MC8LMQVMV');
   </script>
 
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta charset="UTF-8">
   <title>Samosa Stumble</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
 
-  <!-- Favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="favicon_io/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/favicon_io/site.webmanifest">
 
-  <!-- Facebook Opengraph -->
-  <meta property="og:url" content="https://cultureplot.com/samosa-stumble" />
+  <meta property="og:url" content="https://samosastumble.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Samosa Stumble" />
   <meta property="og:description" content="Samosa Stumble"/>
-
-  <meta property="og:image" content="http://cultureplot.com/samosa-stumble/img/samosaRED.png" />
+  <meta property="og:image" content="https://samosastumble.com/img/samosaRED.png" />
   <meta property="og:image:alt" content="samosa" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="http://cultureplot.com/samosa-stumble/img/samosaRED.png" />
+  <meta name="twitter:image" content="https://samosastumble.com/img/samosaRED.png" />
   <meta name="twitter:image:alt" content="Samosa Stumble" />
   <meta name="twitter:description" content="Samosa Stumble"/>
 
-  <link rel="stylesheet" href="css/style.css">
-
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/about.css">
 </head>
 <body>
 
-<div class="tabs">
-  <img src="img/samosaBLACK.png" alt="Samosa Stumble Logo" class="nav-logo" onclick="openTab(event, 'About')">
-  <button class="tablinks active" onclick="openTab(event, 'About')">About</button>
-  <button class="tablinks" onclick="openTab(event, 'Leaderboard')">Results</button>
-  <button class="tablinks" onclick="openTab(event, 'Lifetime')">Lifetime Totals</button>
-  <button class="tablinks" onclick="openTab(event, 'analysis')">Repeat Stumblers</button>
-  <button class="tablinks" onclick="openTab(event, 'Gallery')">Gallery</button>
-</div>
+<nav class="tabs">
+  <a href="/"><img src="/img/samosaBLACK.png" alt="Samosa Stumble Logo" class="nav-logo"></a>
+  <a href="/" class="tablinks active">About</a>
+  <a href="/results/" class="tablinks">Results</a>
+  <a href="/lifetime/" class="tablinks">Lifetime Totals</a>
+  <a href="/repeat-stumblers/" class="tablinks">Repeat Stumblers</a>
+  <a href="/gallery/" class="tablinks">Gallery</a>
+</nav>
 
-<!-- THE LEADERBOARD -->
-<div id="Leaderboard" class="tabcontent">  
-  <!-- Year selector buttons -->
-  <div class="year-selector">
-    <button class="year-btn active" onclick="showYear(2025)">2025</button>
-    <button class="year-btn" onclick="showYear(2024)">2024</button>
-    <button class="year-btn" onclick="showYear(2023)">2023</button>
-    <button class="year-btn" onclick="showYear(2022)">2022</button>
-  </div>
-  
-  <div class="yearly-results-container">
-    <div id="year2025" class="year-section active-year">
-      <h2>2025</h2>
-      <table id="leaderboard2025" class="leaderboard wide-leaderboard yearly-table">
-        <tr>
-          <th class="rankHeader">Rank</th>
-          <th class="nameHeader">Stumbler</th>
-          <th class="distanceHeader">Samosas</th>
-        </tr>
-      </table>
-    </div>
+<div id="About" class="page">
+  <img src="/img/samosaRED.png" alt="Samosa Stumble Logo" class="hero-logo">
 
-    <div id="year2024" class="year-section">
-      <h2>2024</h2>
-      <table id="leaderboard2024" class="leaderboard wide-leaderboard yearly-table">
-        <tr>
-          <th class="rankHeader">Rank</th>
-          <th class="nameHeader">Stumbler</th>
-          <th class="distanceHeader">Samosas</th>
-        </tr>
-      </table>
-    </div>
-
-    <div id="year2023" class="year-section">
-      <h2>2023</h2>
-      <table id="leaderboard2023" class="leaderboard wide-leaderboard yearly-table">
-        <tr>
-          <th class="rankHeader">Rank</th>
-          <th class="nameHeader">Stumbler</th>
-          <th class="distanceHeader">Samosas</th>
-        </tr>
-      </table>
-    </div>
-
-    <div id="year2022" class="year-section">
-      <h2>2022</h2>
-      <table id="leaderboard2022" class="leaderboard wide-leaderboard yearly-table">
-        <tr>
-          <th class="rankHeader">Rank</th>
-          <th class="nameHeader">Stumbler</th>
-          <th class="distanceHeader">Samosas</th>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-<!-- LIFETIME LEADERBOARD -->
-<div id="Lifetime" class="tabcontent">
-  <div class="leaderboard_container">
-    <table id="lifetimeTable" class="leaderboard">
-      <tr>
-        <th class="rankHeader">Rank</th>
-        <th class="nameHeader">Stumbler</th>
-        <th class="distanceHeader">Total Samosas</th>
-        <th class="numYearsHeader">Years Competed</th>
-      </tr>
-    </table>
-  </div>
-</div>
-<!-- end lifetime leaderboard -->
-
-<!-- ANALYSIS & FUN FACTS -->
-<div id="analysis" class="tabcontent">
   <div>
-      <article style="text-align:center;">
-        <h1><img src="img/samosa.png" alt="" class="h1-icon">Samosas Per Year<img src="img/samosa.png" alt="" class="h1-icon"></h1>
-      </article>
-      <div class="heatmapContainer">
-          <div id="heatmap"></div>
-          <div id="heatmapTooltip" class="tooltip"></div>
-      </div>
-  </div>
-</div>
-<!-- end analysis and fun facts -->
-
-<!-- RULES, ABOUT & CONTEST INFO -->
-<div id="About" class="tabcontent">
-  <img src="img/samosaRED.png" alt="Samosa Stumble Logo" class="hero-logo">
- 
-  <div>
-      <p>July 18, 2026</p>
-      <p>5:00pm</p>
-      <p>Warren Park, Chicago</p>
-      <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSczeGrH66jkXbsnzp159mLlImGPD2xXB1AnTeIl1TTOaAm5gg/viewform">Register here</a></p>
+    <p>July 18, 2026</p>
+    <p>5:00pm</p>
+    <p>Warren Park, Chicago</p>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSczeGrH66jkXbsnzp159mLlImGPD2xXB1AnTeIl1TTOaAm5gg/viewform">Register here</a></p>
   </div>
 
   <div class="container">
-    <h1 style="text-align:center;"><img src="img/samosa.png" alt="" class="h1-icon"><img src="img/samosa.png" alt="" class="h1-icon"> SAMOSA STUMBLE <img src="img/samosa.png" alt="" class="h1-icon"><img src="img/samosa.png" alt="" class="h1-icon"></h1>
-    
+    <h1 style="text-align:center;"><img src="/img/samosa.png" alt="" class="h1-icon"><img src="/img/samosa.png" alt="" class="h1-icon"> SAMOSA STUMBLE <img src="/img/samosa.png" alt="" class="h1-icon"><img src="/img/samosa.png" alt="" class="h1-icon"></h1>
+
     <div class="highlight golden-border">
-        <p><strong>Rules</strong></p>
-        <ul>
-            <li>Eat a samosa...</li>
-            <li>Stumble through a 1.1 mile loop...</li>
-            <li>...in 20 minutes</li>
-            <li>Then repeat until you quit!</li>
-            <li>The timer re-starts every 20 minutes, at the :00, :20, and :40 of each hour</li>
-            <li>You must line up at starting line to eat a samosa on these times</li>
-            <li class="warning">If you're late or refuse to eat another samosa, you're out! Samosa wins!</li>
-        </ul>
-        <p><span class="warning">The last samosa stumbler standing wins!</span> But only after eating one more samosa and running a solo loop.</p>
+      <p><strong>Rules</strong></p>
+      <ul>
+        <li>Eat a samosa...</li>
+        <li>Stumble through a 1.1 mile loop...</li>
+        <li>...in 20 minutes</li>
+        <li>Then repeat until you quit!</li>
+        <li>The timer re-starts every 20 minutes, at the :00, :20, and :40 of each hour</li>
+        <li>You must line up at starting line to eat a samosa on these times</li>
+        <li class="warning">If you're late or refuse to eat another samosa, you're out! Samosa wins!</li>
+      </ul>
+      <p><span class="warning">The last samosa stumbler standing wins!</span> But only after eating one more samosa and running a solo loop.</p>
     </div>
 
     <div class="championship golden-border">
       <h2>🏆 THE CHAMPIONSHIP BELT IS ON THE LINE!! 🏆</h2>
-      <img src="img/belt.png" alt="Championship photo" class="championship-photo">
+      <img src="/img/belt.png" alt="Championship photo" class="championship-photo">
     </div>
 
     <div class="location golden-border">
-        <p><strong>Event Info</strong></p>
-        <ul>
-          <li>Location: Warren Park, Chicago</li>
-          <li>Meet: the <a href="https://www.google.com/maps/place/42%C2%B000'02.6%22N+87%C2%B041'08.5%22W/@42.0007665,-87.6867278,17.8z/data=!4m4!3m3!8m2!3d42.000728!4d-87.685706?entry=ttu&g_ep=EgoyMDI1MDUyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">start & finish</a> are inside the park, just east of Warren Park Ball Field 5</li>
-          <li>Round 1 starts at 5:00pm</li>
-          <li>Course: 1.1 mile <a href="https://onthegomap.com/s/rt36k5fo" target="_blank">loop around the park</a></li>
-          <div style="text-align:center;">
-            <img src="img/map.png" alt="Map of race course" class="map-photo">
-          </div>
-          <li>We'll have water and samosas at the start / finish. Bring whatever else you want...but what beyond samosas do you really need?</li>
-        </ul>
-      </div>
-
-  </div>
-</div>
-<!-- end rules & contest info -->
-
-<div id="Gallery" class="tabcontent">
-  
-  <div class="carousel-container">
-    <div class="carousel">
-      <div class="carousel-item active">
-        <img src="img/photo1.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo2.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo3.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo4.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo5.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo6.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo7.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo8.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo9.jpg" alt="Samosa Stumble Photo">
-      </div>
-      <div class="carousel-item">
-        <img src="img/photo10.jpg" alt="Samosa Stumble Photo">
-      </div>
+      <p><strong>Event Info</strong></p>
+      <ul>
+        <li>Location: Warren Park, Chicago</li>
+        <li>Meet: the <a href="https://www.google.com/maps/place/42%C2%B000'02.6%22N+87%C2%B041'08.5%22W/@42.0007665,-87.6867278,17.8z/data=!4m4!3m3!8m2!3d42.000728!4d-87.685706?entry=ttu&g_ep=EgoyMDI1MDUyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">start & finish</a> are inside the park, just east of Warren Park Ball Field 5</li>
+        <li>Round 1 starts at 5:00pm</li>
+        <li>Course: 1.1 mile <a href="https://onthegomap.com/s/rt36k5fo" target="_blank">loop around the park</a></li>
+        <div style="text-align:center;">
+          <img src="/img/map.png" alt="Map of race course" class="map-photo">
+        </div>
+        <li>We'll have water and samosas at the start / finish. Bring whatever else you want...but what beyond samosas do you really need?</li>
+      </ul>
     </div>
-    
-    <button class="carousel-prev" onclick="changeSlide(-1)">❮</button>
-    <button class="carousel-next" onclick="changeSlide(1)">❯</button>
+
   </div>
 </div>
-  
-<script src='js/script.js'></script>
 
 </body>
 </html>

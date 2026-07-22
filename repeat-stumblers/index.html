@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MC8LMQVMV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9MC8LMQVMV');
+  </script>
+
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta charset="UTF-8">
+  <title>Samosa Stumble — Repeat Stumblers</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="/favicon_io/site.webmanifest">
+
+  <meta property="og:url" content="https://samosastumble.com/repeat-stumblers/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Samosa Stumble — Repeat Stumblers" />
+  <meta property="og:description" content="Samosa Stumble"/>
+  <meta property="og:image" content="https://samosastumble.com/img/samosaRED.png" />
+  <meta property="og:image:alt" content="samosa" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://samosastumble.com/img/samosaRED.png" />
+  <meta name="twitter:image:alt" content="Samosa Stumble" />
+  <meta name="twitter:description" content="Samosa Stumble"/>
+
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/repeat-stumblers.css">
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+<nav class="tabs">
+  <a href="/"><img src="/img/samosaBLACK.png" alt="Samosa Stumble Logo" class="nav-logo"></a>
+  <a href="/" class="tablinks">About</a>
+  <a href="/results/" class="tablinks">Results</a>
+  <a href="/lifetime/" class="tablinks">Lifetime Totals</a>
+  <a href="/repeat-stumblers/" class="tablinks active">Repeat Stumblers</a>
+  <a href="/gallery/" class="tablinks">Gallery</a>
+</nav>
+
+<div id="analysis" class="page">
+  <article style="text-align:center;">
+    <h1><img src="/img/samosa.png" alt="" class="h1-icon">Samosas Per Year<img src="/img/samosa.png" alt="" class="h1-icon"></h1>
+  </article>
+  <div class="heatmapContainer">
+    <div id="heatmap"></div>
+    <div id="heatmapTooltip" class="tooltip"></div>
+  </div>
+</div>
+
+<script src="/js/data-loader.js"></script>
+<script src="/js/repeat-stumblers.js"></script>
+</body>
+</html>
